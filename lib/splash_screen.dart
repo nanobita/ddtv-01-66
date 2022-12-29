@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:ddtvthairadio/maink.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
+// import 'mainmmm.dart';
 import 'maink.dart';
 
 class Splash extends StatefulWidget {

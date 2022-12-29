@@ -1,12 +1,17 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:ddtvthairadio/main.dart';
+import 'package:ddtvthairadio/mainhg.dart';
+import 'package:ddtvthairadio/mainooo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_version_plus/new_version_plus.dart';
+// import 'package:new_version_plus/new_version_plus.dart';
 // import 'package:new_version/new_version.dart';
 
 import 'contact.dart';
 import 'news.dart';
-import 'main.dart';
+
+// import 'mainีย.dart';
+// import 'update.dart';
 
 void main() {
   runApp(MyApph());
@@ -14,6 +19,7 @@ void main() {
 
 class MyApph extends StatelessWidget {
   MyApph({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,41 +41,41 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     // Instantiate NewVersion manager object (Using GCP Console app as example)
-    final newVersion = NewVersionPlus(
-      // iOSId: 'com.google.Vespa',
-      androidId: 'com.ddtvthai.ddtv',
-    );
+    // final newVersion = NewVersionPlus(
+    //   // iOSId: 'com.google.Vespa',
+    //   androidId: 'com.ddtvthai.ddtv',
+    // );
 
-    const simpleBehavior = true;
+    // const simpleBehavior = true;
 
-    if (simpleBehavior) {
-      basicStatusCheck(newVersion);
-    }
+    // if (simpleBehavior) {
+    //   basicStatusCheck(newVersion);
+    // }
   }
 
-  basicStatusCheck(NewVersionPlus newVersion) {
-    newVersion.showAlertIfNecessary(
-      context: context,
-      // launchModeVersion: LaunchModeVersion.external,
-    );
-  }
+  // basicStatusCheck(NewVersionPlus newVersion) {
+  //   newVersion.showAlertIfNecessary(
+  //     context: context,
+  //     // launchModeVersion: LaunchModeVersion.external,
+  //   );
+  // }
 
-  advancedStatusCheck(NewVersionPlus newVersion) async {
-    final status = await newVersion.getVersionStatus();
-    if (status != null) {
-      debugPrint(status.releaseNotes);
-      debugPrint(status.appStoreLink);
-      debugPrint(status.localVersion);
-      debugPrint(status.storeVersion);
-      debugPrint(status.canUpdate.toString());
-      newVersion.showUpdateDialog(
-        context: context,
-        versionStatus: status,
-        dialogTitle: 'Custom Title',
-        dialogText: 'Custom Text',
-      );
-    }
-  }
+  // advancedStatusCheck(NewVersionPlus newVersion) async {
+  //   final status = await newVersion.getVersionStatus();
+  //   if (status != null) {
+  //     debugPrint(status.releaseNotes);
+  //     debugPrint(status.appStoreLink);
+  //     debugPrint(status.localVersion);
+  //     debugPrint(status.storeVersion);
+  //     debugPrint(status.canUpdate.toString());
+  //     newVersion.showUpdateDialog(
+  //       context: context,
+  //       versionStatus: status,
+  //       dialogTitle: 'Custom Title',
+  //       dialogText: 'Custom Text',
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
         //     ),
         body: [
           WebViewnews(),
+          MyAppbj(),
           MyAppb(),
-          contact(),
-          MyAppb(),
+          // MyAppm(),
         ][selectedPage],
         bottomNavigationBar: ConvexAppBar(
           backgroundColor: Colors.orange,
@@ -94,13 +100,18 @@ class _MyHomePageState extends State<MyHomePage> {
               title: 'ข่าวสาร',
             ),
             TabItem(
-              icon: Icons.radio,
-              title: 'วิทยุออนไลน์',
-            ),
-            TabItem(
               icon: Icons.web,
               title: 'ติดต่อเรา',
             ),
+            TabItem(
+              icon: Icons.radio,
+              title: 'วิทยุออนไลน์',
+            ),
+
+            // TabItem(
+            //   icon: Icons.web,
+            //   title: 'ข่าว',
+            // ),
           ],
           initialActiveIndex: 1,
           onTap: (int i) {
